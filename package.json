@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create-db": "psql -U postgres -f sql/create_db.sql",
+    "create-table": "psql -U postgres -d my_schedules -f sql/create_table.sql",
+    "seed-table": "psql -U postgres -d my_schedules -f sql/seed_table.sql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
