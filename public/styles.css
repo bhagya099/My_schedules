@@ -1,0 +1,10 @@
+#login-form{
+    width: 50%;
+    margin-left: 25%;
+    padding: 2rem;
+    border: 0.2rem blue solid;
+}
+h1,p{
+    text-align: center;
+    padding: 1rem;
+}
