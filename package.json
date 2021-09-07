@@ -20,5 +20,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhagya099/My_schedules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bhagya099/My_schedules/issues"
+  },
+  "homepage": "https://github.com/bhagya099/My_schedules#readme"
 }
