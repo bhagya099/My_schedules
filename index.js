@@ -10,13 +10,14 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 //Middleware
-app.use('/',loginRouter)
+app.use('/', loginRouter)
 
 // VIEW ENGINE
 app.set('view engine', 'ejs')
 
 //Set our static folder(CSS)
- app.use(express.static('public'))
+app.use(express.static('public'))
+
 
 const PORT = process.env.PORT || 3000;
 
