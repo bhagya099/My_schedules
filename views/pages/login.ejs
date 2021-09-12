@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- bootstrap cdn link  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- css file -->
     <link rel="stylesheet" href="/styles.css">
     <title>Login Page</title>
 </head>
@@ -18,7 +21,7 @@
     </h1>
     <p>Welcome to the homepage</p>
     <!-- Form starts here -->
-    <form id="login-form">
+    <form id="form-style">
         <div class="mb-3">
             <label for="login-email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" name="email">
@@ -28,8 +31,8 @@
             <label for="login-password" class="form-label">Password</label>
             <input type="password" class="form-control" id="login-password" name="password">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg">Login</button>
-        <button type="submit" class="btn btn-primary btn-lg ">Sign up</button>
+        <a role="button" class="btn btn-primary btn-lg" href="/homepage">Login</a>
+        <a role="button" class="btn btn-primary btn-lg" href="/signup">Sign up</a>
     </form>
 </body>
 

@@ -1,22 +1,26 @@
 require('dotenv').config();
 
 const express = require('express');
-const db = require('./database')
-const loginRouter = require('./routes/login')
 const app = express();
 
-// BODY PARSER
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
+// routers
+const loginRouter = require('./routes/login');
+const signupRouter = require('./routes/signup');
 
-//Middleware
-app.use('/', loginRouter)
+// BODY PARSER
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // VIEW ENGINE
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 //Set our static folder(CSS)
-app.use(express.static('public'))
+app.use(express.static('public'));
+
+//Middleware
+app.use('/', loginRouter);
+
+app.use('/signup', signupRouter);
 
 
 const PORT = process.env.PORT || 3000;

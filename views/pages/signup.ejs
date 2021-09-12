@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- css file -->
+    <link rel="stylesheet" href="/styles.css">
+    <title>Sign Up </title>
+</head>
+
+<body>
+
+    <form action="/signup" method="POST" id="form-style" class="mt-5">
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">First name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Your First Name" name="firstname">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Your Last name" name="lastname">
+        </div>
+
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your Email Address" name="email">
+        </div>
+
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Type Password</label>
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Create Password" name="passwrod">
+        </div>
+
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Confirm Password">
+        </div>
+
+        <a role="button" class="btn btn-primary btn-lg" href="/homepage">Submit</a>
+    </form>
+
+</body>
+
+</html>
