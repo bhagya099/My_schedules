@@ -1,4 +1,9 @@
 INSERT INTO users (firstname ,lastname ,email, password) 
-VALUES('bhagya', 'shree', 'bahbsd@aklsdf.com', 'asdf');
+VALUES
+('bhagyashree', 'shakrawar', 'bhagyashree@gmail.com', '1227'),
+('pooja', 'rao', 'pooja@gmail.com', '1227');
 
-INSERT INTO schedules(users_id, day, start_time, end_time) VALUES('2', 'MONDAY', '9:00AM', '11:00AM')
+INSERT INTO schedules(users_id, day, start_time, end_time) 
+VALUES
+('1', 'MONDAY', '9:00AM', '11:00AM'),
+('2', 'TUESDAY', '9:00AM', '11:00AM');

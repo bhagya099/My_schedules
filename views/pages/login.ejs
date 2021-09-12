@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs') %>
+
+<head>
+    <%- include('../partials/head.ejs') %>
+        <title>Log In</title>
+</head>
+
 <body>
     <h2>Please login</h2>
     <!-- Form starts here -->
-    <form id="form-style">
+    <form id="form-style" action="/" method="POST">
         <div class="mb-3">
             <label for="login-email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" name="email" required>
