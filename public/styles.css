@@ -7,8 +7,8 @@
     border: 0.2rem rgb(163, 163, 177) solid;
 }
 
-h1,
-p {
+h2,
+p,h3 {
     text-align: center;
     padding: 1rem;
 }
