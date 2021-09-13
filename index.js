@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 3000
 const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
 const homeRouter = require('./routes/homepage');
- const { redirectToHome } = require('./middleware');
+const logoutRouter = require('./routes/logout')
+ //const { redirectToHome } = require('./middleware');
  const { redirectToLogin } = require('./middleware');
  // BODY PARSER
  app.use(express.urlencoded({ extended: false }));
@@ -38,14 +39,11 @@ const homeRouter = require('./routes/homepage');
  );
 
  //Middleware
- app.use('/', redirectToHome, loginRouter);
- app.use('/signup', redirectToHome, signupRouter);
+ app.use('/', loginRouter);
+ app.use('/signup', signupRouter);
  app.use('/homepage', homeRouter);
+ app.use('/logout', redirectToLogin, logoutRouter);
 
-
-// app.get('/login', (req, res) => {
-//   res.send(req.query.message)
-// })
 
 app.listen(PORT, () => {
     console.log(`server is lisning in : http://localhost:${PORT}`);
