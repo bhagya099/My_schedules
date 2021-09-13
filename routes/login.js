@@ -32,11 +32,13 @@ router.post('/', (req, res) => {
          //res.redirect('/homepage')
         if (result) {
           //TODO: edit session and redirect with success message
-         req.session.userId = user.users_id
-         console.log(req.session)
-          res.redirect('/homepage')
-         } else {
-          res.redirect('/login?message=Email%20or%20password%20is%20incorrect.')
+          req.session.userId = user.users_id;
+          console.log(req.session);
+          res.redirect('/homepage');
+        } else {
+          res.redirect(
+            '/login?message=Email%20or%20password%20is%20incorrect.'
+          );
         }
       })
       .catch(error => {
