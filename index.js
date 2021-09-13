@@ -43,9 +43,9 @@ app.use('/signup', redirectToHome, signupRouter);
 app.use('/homepage', homeRouter);
 
 
-app.get('/login', (req, res) => {
-  res.send(req.query.message)
-})
+// app.get('/login', (req, res) => {
+//   res.send(req.query.message)
+// })
 
 app.listen(PORT, () => {
     console.log(`server is lisning in : http://localhost:${PORT}`);
