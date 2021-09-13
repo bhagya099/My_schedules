@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
+    <!-- adding head data from head -->
     <%- include('../partials/head.ejs') %>
         <title>Sign Up</title>
+        <!-- validation js for front -end -->
+        <!-- <script src="/validation.js" defer></script> -->
 </head>
 
 <body>
@@ -11,31 +14,33 @@
     <p>It's quick and easy.</p>
     <form action="/signup" method="POST" id="form-style" class="mt-5">
         <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">First name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Your First Name" name="firstname">
+            <label for="firstname" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Your First Name" name="firstname">
         </div>
         <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Your Last name" name="lastname">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Your Last name" name="lastname">
         </div>
 
         <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your Email Address" name="email">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter Your Email Address" name="email">
         </div>
 
         <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Type Password</label>
-            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Create Password" name="passwrod">
+            <label for="password" class="form-label">Type Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Create Password" name="password">
         </div>
 
         <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Confirm Password">
+            <label for="confirm-password" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password" name="confirm_password">
         </div>
 
-        <a role="button" class="btn btn-primary btn-lg" href="/">Submit</a>
+        <!-- <a role="button" class="btn btn-primary btn-lg" href="/">Submit</a> -->
+        <button type="submit" class="btn btn-primary btn-lg" href="/">Submit</button>
     </form>
+    <!-- adding footer file -->
     <%- include('../partials/footer.ejs') %>
 </body>
 
