@@ -7,6 +7,11 @@
 </head>
 
 <body>
+    <% if (typeof message !=='undefined' ) { %>
+        <p style="color: red">
+            <%= message %>
+        </p>
+        <% } %>
     <h2>Please login</h2>
     <!-- Form starts here -->
     <form id="form-style" action="/" method="POST">
@@ -19,7 +24,7 @@
             <label for="login-password" class="form-label">Password</label>
             <input type="password" class="form-control" id="login-password" name="password" required>
         </div>
-        <a role="button" class="btn btn-primary btn-lg" href="/homepage">Login</a>
+        <button type="submit" class="btn btn-primary btn-lg">Login</button>
         <a role="button" class="btn btn-primary btn-lg" href="/signup">Sign up</a>
     </form>
     <%- include('../partials/footer.ejs') %>
