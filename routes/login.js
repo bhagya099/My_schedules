@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     } else {
       // 3. if so, verify password and 
       console.log(password)
-      console.log(user.id)
+      console.log(user)
       bcrypt.compare(password, user.password)
       .then(result => {
         console.log(result)
@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
          //res.redirect('/homepage')
         if (result) {
           //TODO: edit session and redirect with success message
-         req.session.userId = user.id
+         req.session.userId = user.users_id
          console.log(req.session)
           res.redirect('/homepage')
          } else {
