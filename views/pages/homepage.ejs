@@ -28,10 +28,14 @@
         
                     <tr>
                         <td>
+                        
                             <%= user.users_id %>
+                        
                         </td>
                         <td>
+                            <a href="/user/<%= user.users_id %>">
                             <%= user.firstname %>
+                        </a>
                         </td>
                         <td>
                             <%= user.start_time %>
