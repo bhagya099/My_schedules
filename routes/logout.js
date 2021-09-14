@@ -8,7 +8,7 @@ router.get('/',(req,res) => {
         res.send(err)
         } else{
             res.clearCookie('mrcoffee_sid')
-            res.redirect('/login')
+            res.redirect('/');
         }
     })
 
