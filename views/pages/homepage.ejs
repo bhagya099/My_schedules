@@ -7,8 +7,46 @@
 </head>
 
 <body>
+    <!-- nav -->
     <%- include('../partials/nav.ejs') %>
+    
         <h3>Welcome!!</h3>
+        <!-- displaying all the users with schedules -->
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">User Id</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user=> { %>
+        
+                    <tr>
+                        <td>
+                            <%= user.users_id %>
+                        </td>
+                        <td>
+                            <%= user.firstname %>
+                        </td>
+                        <td>
+                            <%= user.start_time %>
+                        </td>
+                        <td>
+                            <%= user.end_time %>
+                        </td>
+                    </tr>
+                    <% }) %>
+        
+        
+            </tbody>
+        </table>
+        
+        
+        <!-- footer -->
         <%- include('../partials/footer.ejs') %>
 </body>
 
