@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
     db.oneOrNone('SELECT * FROM users WHERE email = $1;', email)
         .then((userExists) => {
             if (userExists) {
-                res.redirect('/login?message=User%20already%20exists');
+                res.redirect('/?message=User%20already%20exists');
 
                 // 2.if not create a new user
             } else {

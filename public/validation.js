@@ -56,4 +56,5 @@ const clearForm = () => {
     confirm_password.value = '';
 };
 
-form.addEventListener('click', validation);
+// form.addEventListener('click', validation);
+form.onsubmit = validation;

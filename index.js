@@ -15,7 +15,7 @@ const logoutRouter = require('./routes/logout');
 const userRouter = require('./routes/user');
 
 //  middleware
-//const { redirectToHome } = require('./middleware');
+const { redirectToHome } = require('./middleware');
 const { redirectToLogin } = require('./middleware');
 // BODY PARSER
 app.use(express.urlencoded({ extended: false }));
@@ -43,8 +43,8 @@ app.use(
 
 //displaying pages using router
 app.use('/', loginRouter);
-app.use('/signup', signupRouter);
-app.use('/homepage', homeRouter);
+app.use('/signup', redirectToHome, signupRouter);
+app.use('/homepage', redirectToLogin, homeRouter);
 app.use('/logout', redirectToLogin, logoutRouter);
 app.use('/user', userRouter);
 
