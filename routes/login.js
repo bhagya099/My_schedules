@@ -13,22 +13,24 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const { email, password } = req.body
   // 1. validate
-
+    if((req.body.email === '') || (req.body.password === '')){
+       res.redirect('/?message=Please%20enter%20email%20and%20password.')
+    }
   // 2. does the email exist in the db?
   const cleanedEmail = email.toLowerCase().trim()
   console.log(cleanedEmail)
   db.oneOrNone('SELECT * FROM users WHERE email = $1;', cleanedEmail)
   .then(user => {
     if (!user) {
-      res.redirect('/login?message=Email%20or%20password%20is%20incorrect.')
+      res.redirect('/?message=Email%20or%20password%20is%20incorrect.')
     } else {
       // 3. if so, verify password and 
       console.log(password)
       console.log(user)
       bcrypt.compare(password, user.password)
       .then(result => {
-        console.log(result)
-        console.log(req.session)
+        //console.log(result)
+       // console.log(req.session)
          //res.redirect('/homepage')
         if (result) {
           //TODO: edit session and redirect with success message
@@ -37,7 +39,7 @@ router.post('/', (req, res) => {
           res.redirect('/homepage');
         } else {
           res.redirect(
-            '/login?message=Email%20or%20password%20is%20incorrect.'
+            '/?message=Email%20or%20password%20is%20incorrect.'
           );
         }
       })

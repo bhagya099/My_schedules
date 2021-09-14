@@ -11,8 +11,9 @@ const PORT = process.env.PORT || 3000
 const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
 const homeRouter = require('./routes/homepage');
-const logoutRouter = require('./routes/logout')
- //const { redirectToHome } = require('./middleware');
+const logoutRouter = require('./routes/logout');
+const schedulesRouter = require('./routes/schedules');
+ const { redirectToHome } = require('./middleware');
  const { redirectToLogin } = require('./middleware');
  // BODY PARSER
  app.use(express.urlencoded({ extended: false }));
@@ -39,9 +40,10 @@ const logoutRouter = require('./routes/logout')
  );
 
  //Middleware
- app.use('/', loginRouter);
- app.use('/signup', signupRouter);
+ app.use('/', redirectToHome, loginRouter);
+ app.use('/signup', redirectToHome, signupRouter);
  app.use('/homepage', homeRouter);
+ app.use('/schedules', schedulesRouter);
  app.use('/logout', redirectToLogin, logoutRouter);
 
 
