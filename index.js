@@ -12,6 +12,8 @@ const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
 const homeRouter = require('./routes/homepage');
 const logoutRouter = require('./routes/logout');
+const schedulesRouter = require('./routes/schedules');
+
 const userRouter = require('./routes/user');
 
 //  middleware
@@ -46,7 +48,9 @@ app.use('/', loginRouter);
 app.use('/signup', redirectToHome, signupRouter);
 app.use('/homepage', redirectToLogin, homeRouter);
 app.use('/logout', redirectToLogin, logoutRouter);
+app.use('/schedules', schedulesRouter);
 app.use('/user', userRouter);
+
 
 
 app.listen(PORT, () => {
