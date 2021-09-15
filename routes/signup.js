@@ -3,13 +3,15 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const db = require('../database');
 
-router.get('/', (req, res) => {
+const { redirectToHome } = require('../middleware');
+
+router.get('/', redirectToHome,(req, res) => {
     res.render('pages/signup');
 });
 
 // for creating new users
 
-router.post('/', (req, res) => {
+router.post('/', redirectToHome, (req, res) => {
     // creating variable
     const { firstname, lastname, email, password, confirm_password } = req.body;
     // console.log(req.body);
