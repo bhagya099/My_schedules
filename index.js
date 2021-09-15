@@ -13,38 +13,44 @@ const signupRouter = require('./routes/signup');
 const homeRouter = require('./routes/homepage');
 const logoutRouter = require('./routes/logout');
 const schedulesRouter = require('./routes/schedules');
- //const { redirectToHome } = require('./middleware');
- //const { redirectToLogin } = require('./middleware');
- // BODY PARSER
- app.use(express.urlencoded({ extended: false }));
- app.use(express.json());
 
- app.use(morgan('dev'));
+const userRouter = require('./routes/user');
 
- // VIEW ENGINE
- app.set('view engine', 'ejs');
+//  middleware
+const { redirectToHome } = require('./middleware');
+const { redirectToLogin } = require('./middleware');
+// BODY PARSER
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
- //Set our static folder(CSS)
- app.use(express.static('public'));
- // Session config
- app.use(
-   session({
-     cookie: {
-       maxAge: 1000 * 60 * 60 * 24,
-     },
-     name: 'mrcoffee_sid',
-     resave: false,
-     saveUninitialized: false,
-     secret: process.env.SESS_SECRET,
-   })
- );
+app.use(morgan('dev'));
 
- //Middleware
- app.use('/', loginRouter);
- app.use('/signup', signupRouter);
- app.use('/homepage', homeRouter);
- app.use('/schedules', schedulesRouter);
- app.use('/logout', logoutRouter);
+// VIEW ENGINE
+app.set('view engine', 'ejs');
+
+//Set our static folder(CSS)
+app.use(express.static('public'));
+// Session config
+app.use(
+  session({
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+    name: 'mrcoffee_sid',
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.SESS_SECRET,
+  })
+);
+
+//displaying pages using router
+app.use('/', loginRouter);
+app.use('/signup', redirectToHome, signupRouter);
+app.use('/homepage', redirectToLogin, homeRouter);
+app.use('/logout', redirectToLogin, logoutRouter);
+app.use('/schedules', schedulesRouter);
+app.use('/user', userRouter);
+
 
 
 app.listen(PORT, () => {

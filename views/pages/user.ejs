@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- adding head data from head -->
+    <%- include('../partials/head.ejs') %>
+        <title>User Details</title>
+</head>
+
+<body>
+    <!-- adding nav bar -->
+    <%- include('../partials/nav.ejs') %>
+        <h1>All the Details of <%= user.firstname %>
+        </h1>
+        <p>First Name : <%= user.firstname %>
+        </p>
+        <p>Last Name : <%= user.lastname %>
+        </p>
+        <p>Email Address : <%= user.email %>
+        </p>
+
+
+
+        <!-- including footer -->
+        <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

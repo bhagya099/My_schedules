@@ -10,6 +10,7 @@ router.get('/', redirectToLogin, (req,res) => {
         } else{
             res.clearCookie('mrcoffee_sid')
             res.redirect('/')
+
         }
     })
 

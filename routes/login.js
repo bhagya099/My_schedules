@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../database')
+
 const bcrypt = require('bcrypt')
 const { redirectToHome } = require('../middleware');
 
@@ -13,13 +14,14 @@ router.get('/', redirectToHome, (req, res) => {
 
 router.post('/', redirectToHome, (req, res) => {
   const { email, password } = req.body
+
   // 1. validate
     if((req.body.email === '') || (req.body.password === '')){
        res.redirect('/?message=Please%20enter%20email%20and%20password.')
     }
   // 2. does the email exist in the db?
-  const cleanedEmail = email.toLowerCase().trim()
-  console.log(cleanedEmail)
+  const cleanedEmail = email.toLowerCase().trim();
+  console.log(cleanedEmail);
   db.oneOrNone('SELECT * FROM users WHERE email = $1;', cleanedEmail)
   .then(user => {
     if (!user) {
@@ -55,6 +57,7 @@ router.post('/', redirectToHome, (req, res) => {
     res.send(error)
   })
 })
+
 
 
 module.exports = router;
