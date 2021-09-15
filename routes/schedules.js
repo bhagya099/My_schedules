@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const { redirectToHome } = require('../middleware');
+//const { redirectToHome } = require('../middleware');
 
-router.get('/', redirectToHome, (req,res) => {
+router.get('/', (req,res) => {
     res.render('pages/schedules')
 })
 
