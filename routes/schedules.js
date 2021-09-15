@@ -4,17 +4,19 @@ const router = express.Router()
 const db = require('../database')
 const { redirectToLogin } = require('../middleware');
 
-router.get('/', (req, res) => {
+router.get('/', redirectToLogin, (req, res) => {
   db.any('SELECT users_id, day, start_time, end_time FROM schedules;')
     .then((schedules) => {
       console.log(req.session.userId);
-      schedules.some((schedule) => {
+      const newSchedule = schedules.filter((schedule) => {
         if (schedule.users_id == req.session.userId) {
           console.log(schedule);
-          res.render('pages/schedules', {
-            schedule,
-          });
+          return schedule;
         }
+      });
+
+      res.render('pages/schedules', {
+        newSchedule,
       });
     })
     .catch((err) => {
