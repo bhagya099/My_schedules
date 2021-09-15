@@ -9,7 +9,7 @@
                 <form id="form-style" method="POST" action="/schedules">
                     <div class="mb-3">
                         <label for="users_id" class="form-label">User Id</label>
-                        <input type="text" class="form-control" id="users_id" name="users_id" required>
+                        <input type="text" class="form-control" id="users_id" name="users_id" placeholder="<%= schedule.users_id %>" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="day" class="form-label">Day</label>
@@ -38,6 +38,16 @@
                     </div>
                 </form>
             </div>
+        <h3>Your all the schedules</h3>
+        <p>
+            <%= schedule.day %>
+        </p>
+        <p>
+            <%= schedule.start_time %>
+        </p>
+        <p>
+            <%= schedule.end_time %>
+        </p>
             <%- include('../partials/footer.ejs') %>
             
               
