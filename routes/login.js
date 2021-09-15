@@ -2,15 +2,16 @@ const express = require('express')
 const router = express.Router()
 const db = require('../database')
 const bcrypt = require('bcrypt')
+const { redirectToHome } = require('../middleware');
 
-router.get('/', (req, res) => {
+router.get('/', redirectToHome, (req, res) => {
     res.render('pages/login', {
     message: req.query.message
   })
 });
 
 
-router.post('/', (req, res) => {
+router.post('/', redirectToHome, (req, res) => {
   const { email, password } = req.body
   // 1. validate
     if((req.body.email === '') || (req.body.password === '')){

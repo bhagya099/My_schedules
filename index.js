@@ -13,8 +13,8 @@ const signupRouter = require('./routes/signup');
 const homeRouter = require('./routes/homepage');
 const logoutRouter = require('./routes/logout');
 const schedulesRouter = require('./routes/schedules');
- const { redirectToHome } = require('./middleware');
- const { redirectToLogin } = require('./middleware');
+ //const { redirectToHome } = require('./middleware');
+ //const { redirectToLogin } = require('./middleware');
  // BODY PARSER
  app.use(express.urlencoded({ extended: false }));
  app.use(express.json());
@@ -40,11 +40,11 @@ const schedulesRouter = require('./routes/schedules');
  );
 
  //Middleware
- app.use('/', redirectToHome, loginRouter);
- app.use('/signup', redirectToHome, signupRouter);
+ app.use('/', loginRouter);
+ app.use('/signup', signupRouter);
  app.use('/homepage', homeRouter);
  app.use('/schedules', schedulesRouter);
- app.use('/logout', redirectToLogin, logoutRouter);
+ app.use('/logout', logoutRouter);
 
 
 app.listen(PORT, () => {
