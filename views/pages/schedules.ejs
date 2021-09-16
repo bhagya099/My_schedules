@@ -7,9 +7,9 @@
         <h2>Please Enter Schedule data</h2>
         <!-- erroe message display -->
         <% if (typeof message !=='undefined' ) { %>
-            <p style="color: red">
+            <h2 style="color: red">
                 <%= message %>
-            </p>
+            </h2>
             <% } %>
             <!-- Schedule form -->
             <main>
@@ -43,18 +43,21 @@
                     </div>
                 </form>
             </div>
-        <h3>Your schedules</h3>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <% newSchedule.forEach(newSchedule=> { %>  
-            <div class="col">
-              <div class="card" style="background-color: rgb(78, 78, 138); color: white;">
-                <div class="card-body">
-                 <p> Day: <%= newSchedule.day %> </p>
-                 <p> Start Time: <%= newSchedule.start_time %></p>
-                 <p> End Time: <%= newSchedule.end_time %></p>
-                </div>
-             </div>
-        </div>
+            <h3>Your schedules</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <% newSchedule.forEach(newSchedule=> { %>
+                    <div class="col">
+                        <div class="card" style="background-color: rgb(78, 78, 138); color: white;">
+                            <div class="card-body">
+                                <p> Day: <%= newSchedule.day %>
+                                </p>
+                                <p> Start Time: <%= newSchedule.start_time %>
+                                </p>
+                                <p> End Time: <%= newSchedule.end_time %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
         <% }) %>
     </main>
             <%- include('../partials/footer.ejs') %>

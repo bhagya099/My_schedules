@@ -16,7 +16,6 @@ router.get('/', redirectToHome, (req, res) => {
 router.post('/', redirectToHome, (req, res) => {
   // creating variable
   const { firstname, lastname, email, password, confirm_password } = req.body;
-  // console.log(req.body);
 
   //    putting data in databse users table
   // 1. first check if user already exists
@@ -34,8 +33,6 @@ router.post('/', redirectToHome, (req, res) => {
         // changing email text into lowercase and removing all the spaces
         const cleanEmail = email.toLowerCase().trim();
 
-
-        console.log(`firstname : ${firstname}`);
         // if input is empty
         if (
           !firstname ||
@@ -44,7 +41,6 @@ router.post('/', redirectToHome, (req, res) => {
           !password ||
           !confirm_password
         ) {
-          //   return res.status(400).json({ msg: 'Please fill all the field' });
           return res.redirect('/signup?message=Please%20fill%20all%20fields.');
         } else {
           // putting data in database table

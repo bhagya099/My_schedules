@@ -16,11 +16,11 @@
     </header>
     <main>
         <!-- for error message -->
-<% if (typeof message !=='undefined' ) { %>
-    <p style="color: red">
-        <%= message %>
-    </p>
-    <% } %>
+        <% if (typeof message !=='undefined' ) { %>
+        <h2 style="color: red">
+            <%= message %>
+        </h2>
+        <% } %>
     <form action="/signup" method="POST" id="form-style" class="mt-5">
         <div class="mb-3">
             <label for="firstname" class="form-label">First name</label>

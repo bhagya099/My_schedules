@@ -21,41 +21,35 @@ router.post('/', redirectToHome, (req, res) => {
     }
   // 2. does the email exist in the db?
   const cleanedEmail = email.toLowerCase().trim();
-  console.log(cleanedEmail);
+  
   db.oneOrNone('SELECT * FROM users WHERE email = $1;', cleanedEmail)
-  .then(user => {
-    if (!user) {
-      res.redirect('/?message=Email%20or%20password%20is%20incorrect.')
-    } else {
-      // 3. if so, verify password and 
-      console.log(password)
-      console.log(user)
-      bcrypt.compare(password, user.password)
-      .then(result => {
-        //console.log(result)
-       // console.log(req.session)
-         //res.redirect('/homepage')
-        if (result) {
-          //TODO: edit session and redirect with success message
-          req.session.userId = user.users_id;
-          console.log(req.session);
-          res.redirect('/homepage');
-        } else {
-          res.redirect(
-            '/?message=Email%20or%20password%20is%20incorrect.'
-          );
-        }
-      })
-      .catch(error => {
-        console.log(error)
-        res.send(error)
-      })
-    }
-  })
-  .catch(error => {
-    console.log(error)
-    res.send(error)
-  })
+    .then((user) => {
+      if (!user) {
+        res.redirect('/?message=Email%20or%20password%20is%20incorrect.');
+      } else {
+        // 3. if so, verify password and compare the password with hash password
+        bcrypt
+          .compare(password, user.password)
+          .then((result) => {
+            if (result) {
+              //TODO: edit session and redirect with success message
+              req.session.userId = user.users_id;
+              console.log(req.session);
+              res.redirect('/homepage');
+            } else {
+              res.redirect('/?message=Email%20or%20password%20is%20incorrect.');
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            res.send(error);
+          });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      res.send(error);
+    });
 })
 
 
