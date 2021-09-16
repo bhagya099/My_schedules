@@ -1,4 +1,13 @@
-
+nav{
+    background-color: #e3f2fd;
+}
+nav ul{
+    padding: 1rem;
+    margin: 1rem;
+}
+nav ul li .logoutBtn{
+    margin-right: 0;
+}
 #form-style {
     width: 50%;
     max-width: 960px;
@@ -8,8 +17,23 @@
     border: 0.2rem rgb(163, 163, 177) solid;
 }
 
-h2,
+h2,h1,
 p,h3 {
     text-align: center;
     padding: 1rem;
+}
+.userCard{
+    max-width: 18rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.userTable{
+    max-width: 900px !important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: rgb(116, 116, 165) 0.2rem solid;
 }
