@@ -10,16 +10,18 @@
 <body>
     <!-- adding nav bar -->
     <%- include('../partials/nav.ejs') %>
-        <h1>All the Details of <%= user.firstname %>
+        <h1>User Details of <%= user.firstname %>
         </h1>
-        <p>First Name : <%= user.firstname %>
-        </p>
-        <p>Last Name : <%= user.lastname %>
-        </p>
-        <p>Email Address : <%= user.email %>
-        </p>
-
-
+        <div class="card border-primary userCard">
+            <div class="card-body">
+                <p>First Name: <%= user.firstname %>
+                </p>
+                <p>Last Name: <%= user.lastname %>
+                </p>
+                <p>Email: <%= user.email %>
+                </p>
+            </div>
+        </div>
 
         <!-- including footer -->
         <%- include('../partials/footer.ejs') %>

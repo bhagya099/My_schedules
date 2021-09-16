@@ -34,6 +34,7 @@ router.post('/', redirectToHome, (req, res) => {
         // changing email text into lowercase and removing all the spaces
         const cleanEmail = email.toLowerCase().trim();
 
+
         console.log(`firstname : ${firstname}`);
         // if input is empty
         if (
@@ -64,6 +65,7 @@ router.post('/', redirectToHome, (req, res) => {
       console.log(err);
       res.send(err);
     });
+
 });
 
 

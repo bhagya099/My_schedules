@@ -5,12 +5,20 @@ const db = require('../database')
 const { redirectToLogin } = require('../middleware');
 
 router.get('/', redirectToLogin, (req, res) => {
-  db.any('SELECT users_id, day, start_time, end_time FROM schedules;')
+  db.any("SELECT users_id, day, TO_CHAR(start_time, 'HH12:MM AM') start_time, TO_CHAR(end_time, 'HH12:MM AM') end_time FROM schedules;")
     .then((schedules) => {
       console.log(req.session.userId);
       const newSchedule = schedules.filter((schedule) => {
         if (schedule.users_id == req.session.userId) {
-          console.log(schedule);
+          //console.log(schedule);
+          const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday'];
+        for(let i=1;i <= week.length+1; i++)
+        { 
+          if(i == schedule.day)
+           {
+               schedule.day = week[i-1];                         
+          }
+        }
           return schedule;
         }
       });
