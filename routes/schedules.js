@@ -44,7 +44,10 @@ router.post('/', redirectToLogin, (req, res) => {
   const { day, start_time, end_time } = req.body;
   // for not taking empty values
   if (!day || !start_time || !end_time) {
-    return res.status(400).json({ msg: 'Please fill all the field' });
+    // return res.status(400).json({ msg: 'Please fill all the fields' });
+     res.redirect(
+          '/schedules?message=Please%20fill%20has%20all%20the%20fields.'
+        );
   } else {
     db.any(
       'SELECT users_id, day, start_time, end_time FROM schedules WHERE users_id =$1 AND day=$2;',
