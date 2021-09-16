@@ -5,12 +5,14 @@
         <%- include('../partials/nav.ejs') %>
         <div class="bg-image"></div>
         <h2>Please Enter Schedule data</h2>
+        <!-- erroe message display -->
         <% if (typeof message !=='undefined' ) { %>
             <p style="color: red">
                 <%= message %>
             </p>
             <% } %>
             <!-- Schedule form -->
+            <main>
             <div id="formDiv">
                 <form id="form-style" method="POST" action="/schedules">
                 
@@ -54,7 +56,7 @@
              </div>
         </div>
         <% }) %>
-
+    </main>
             <%- include('../partials/footer.ejs') %>
     </div>
     </body>

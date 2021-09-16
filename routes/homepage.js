@@ -23,7 +23,8 @@ router.get('/', redirectToLogin, (req, res) => {
         return user;
       })
 
-        console.log(users);
+      console.log(users);
+    
       res.render('pages/homepage', {
         users,
       });

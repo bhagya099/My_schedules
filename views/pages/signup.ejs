@@ -10,13 +10,17 @@
 </head>
 
 <body>
+    <header>
     <h3>SIGN UP</h3>
-    <% if (typeof message !=='undefined' ) { %>
-        <p style="color: red">
-            <%= message %>
-        </p>
-        <% } %>
     <p>It's quick and easy.</p>
+    </header>
+    <main>
+        <!-- for error message -->
+<% if (typeof message !=='undefined' ) { %>
+    <p style="color: red">
+        <%= message %>
+    </p>
+    <% } %>
     <form action="/signup" method="POST" id="form-style" class="mt-5">
         <div class="mb-3">
             <label for="firstname" class="form-label">First name</label>
@@ -46,6 +50,7 @@
         <button type="submit" class="btn btn-primary btn-lg" href="/">Submit</button>
         <a class="btn btn-primary btn-lg" role="button" href="/">Already user go to Login</a>
     </form>
+</main>
     <!-- adding footer file -->
     <%- include('../partials/footer.ejs') %>
 </body>
