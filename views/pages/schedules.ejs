@@ -3,18 +3,16 @@
 <%- include('../partials/head.ejs') %>
     <body>
         <%- include('../partials/nav.ejs') %>
+        <div class="bg-image"></div>
         <h2>Please Enter Schedule data</h2>
             <!-- Schedule form -->
             <div id="formDiv">
                 <form id="form-style" method="POST" action="/schedules">
-                    <div class="mb-3">
-                        <label for="users_id" class="form-label">User Id</label>
-                        <input type="text" class="form-control" id="users_id" name="users_id">
-                    </div>
+                
                     <div class="mb-3">
                         <label for="day" class="form-label">Day</label>
-                        <select class="form-select" aria-label="Default select example" id="day" name="day">
-                            <option selected>Open this select menu</option>
+                        <select class="form-select" aria-label="Default select example" id="day" name="day" required>
+                            
                             <option value="1">Sunday</option>
                             <option value="2">Monday</option>
                             <option value="3">Tuesday</option>
@@ -34,24 +32,25 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary" id="schBtn">Submit</button>
+                        <button type="submit" class="btn" id="schBtn" style="background-color: rgb(78, 78, 138); color: white;">Submit</button>
                     </div>
                 </form>
             </div>
-        <h3>Your all the schedules</h3>
-    <% newSchedule.forEach(newSchedule=> { %>
-        <p>
-            <%= newSchedule.day %>
-        </p>
-        <p>
-            <%= newSchedule.start_time %>
-        </p>
-        <p>
-            <%= newSchedule.end_time %>
-        </p>
+        <h3>Your schedules</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% newSchedule.forEach(newSchedule=> { %>  
+            <div class="col">
+              <div class="card" style="background-color: rgb(78, 78, 138); color: white;">
+                <div class="card-body">
+                 <p> Day: <%= newSchedule.day %> </p>
+                 <p> Start Time: <%= newSchedule.start_time %></p>
+                 <p> End Time: <%= newSchedule.end_time %></p>
+                </div>
+             </div>
+        </div>
         <% }) %>
+
             <%- include('../partials/footer.ejs') %>
-            
-              
+    </div>
     </body>
 </html>
