@@ -5,6 +5,11 @@
         <%- include('../partials/nav.ejs') %>
         <div class="bg-image"></div>
         <h2>Please Enter Schedule data</h2>
+        <% if (typeof message !=='undefined' ) { %>
+            <p style="color: red">
+                <%= message %>
+            </p>
+            <% } %>
             <!-- Schedule form -->
             <div id="formDiv">
                 <form id="form-style" method="POST" action="/schedules">
@@ -24,11 +29,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="start_time" class="form-label">Start Time</label>
-                        <input type="time" class="form-control" id="start_time" name="start_time" required>
+                        <input type="time" class="form-control" id="start_time" name="start_time" min="07:00" max="19:00" required>
                     </div>
                     <div class="mb-3">
                         <label for="end_time" class="form-label">End Time</label>
-                        <input type="Time" class="form-control" id="end_time" name="end_time" required>
+                        <input type="Time" class="form-control" id="end_time" name="end_time" min="07:00" max="19:00" required>
                     </div>
 
                     <div class="col-12">

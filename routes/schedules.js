@@ -25,6 +25,7 @@ router.get('/', redirectToLogin, (req, res) => {
 
       res.render('pages/schedules', {
         newSchedule,
+        message: req.query.message,
       });
     })
     .catch((err) => {
@@ -32,7 +33,6 @@ router.get('/', redirectToLogin, (req, res) => {
       res.send(err);
     });
 });
-
 
 router.post('/', redirectToLogin, (req, res) => {
   const { day, start_time, end_time } = req.body;
@@ -52,7 +52,10 @@ router.post('/', redirectToLogin, (req, res) => {
       });
       console.log(overlap);
       if (overlap) {
-        res.send('Please selct another time');
+        // res.send('Please select another time');
+        res.redirect(
+          '/schedules?message=This%20time%20has%20already%20takedn%20select%20another%20time.'
+        );
       } else {
         db.none(
           'INSERT INTO schedules(users_id, day, start_time, end_time) VALUES($1, $2, $3,$4);',
@@ -79,5 +82,5 @@ router.post('/', redirectToLogin, (req, res) => {
     //     res.send(error);
     //   });
   }
-})
+});
 module.exports = router

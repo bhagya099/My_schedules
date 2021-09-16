@@ -11,6 +11,11 @@
 
 <body>
     <h3>SIGN UP</h3>
+    <% if (typeof message !=='undefined' ) { %>
+        <p style="color: red">
+            <%= message %>
+        </p>
+        <% } %>
     <p>It's quick and easy.</p>
     <form action="/signup" method="POST" id="form-style" class="mt-5">
         <div class="mb-3">
