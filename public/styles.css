@@ -1,33 +1,35 @@
-/* nav{
-    background-color: #e3f2fd;
-} */
-/* nav ul{
-    padding: 1rem;
-    margin: 1rem;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-nav ul li .logoutBtn{
-    margin-right: 0;
-} */
+body, html {
+  height: 100%;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+nav{
+    background-color: rgb(78, 78, 138);
+}
 #form-style {
     width: 50%;
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     padding: 2rem;
-    border: 0.2rem rgb(163, 163, 177) solid;
+    border: 1px rgb(78, 78, 138) solid;
 }
-
-h2,h1,
-p,h3 {
+h2,h3,p,h1 {
     text-align: center;
     padding: 1rem;
-}
+} 
 .userCard{
     max-width: 18rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    background-color: rgb(78, 78, 138);
+    color: white;
 }
 .scheduleCard{
     max-width: 18rem;
@@ -36,10 +38,10 @@ p,h3 {
     justify-content: center;
 }
 .userTable{
-    max-width: 900px !important;
+    max-width: 800px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    border: rgb(116, 116, 165) 0.2rem solid;
+    /* width: 50%; */
+    border: rgb(78, 78, 138) 1px solid;
 }

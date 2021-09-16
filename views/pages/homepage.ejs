@@ -9,7 +9,6 @@
 <body>
     <!-- nav -->
     <%- include('../partials/nav.ejs') %>
-    
         <h3>Welcome</h3>
         <p>Click the username for more information </p>
         <!-- displaying all the users with schedules -->
@@ -28,8 +27,7 @@
                 <% users.forEach(user=> { %>
         
                     <tr>
-                        <td>
-                        
+                        <td>                      
                             <%= user.users_id %>
                         
                         </td>
@@ -49,9 +47,7 @@
                         </td>
                     </tr>
                     <% }) %>
-        
-        
-            </tbody>
+                 </tbody>
         </table>
         
         
