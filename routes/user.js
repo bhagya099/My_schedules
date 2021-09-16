@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
       users.forEach((user) => {
         if (user.users_id === Number(req.params.id)) {
           console.log('found it');
-          console.log(user);
+          //console.log(user);
           res.render('pages/user', {
             user,
           });

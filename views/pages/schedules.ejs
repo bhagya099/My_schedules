@@ -35,18 +35,21 @@
                     </div>
                 </form>
             </div>
-        <h3>Your all the schedules</h3>
-    <% newSchedule.forEach(newSchedule=> { %>
-        <p>
-            <%= newSchedule.day %>
-        </p>
-        <p>
-            <%= newSchedule.start_time %>
-        </p>
-        <p>
-            <%= newSchedule.end_time %>
-        </p>
+        <h3>Your schedules</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% newSchedule.forEach(newSchedule=> { %>  
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                 <p> Day: <%= newSchedule.day %> </p>
+                 <p> Start Time<%= newSchedule.start_time %></p>
+                 <p> End Time:<%= newSchedule.end_time %></p>
+                </div>
+             </div>
+            </div>
         <% }) %>
+        </div>
+
             <%- include('../partials/footer.ejs') %>
             
               

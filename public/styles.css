@@ -1,13 +1,13 @@
-nav{
+/* nav{
     background-color: #e3f2fd;
-}
-nav ul{
+} */
+/* nav ul{
     padding: 1rem;
     margin: 1rem;
 }
 nav ul li .logoutBtn{
     margin-right: 0;
-}
+} */
 #form-style {
     width: 50%;
     max-width: 960px;
@@ -28,6 +28,12 @@ p,h3 {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+.scheduleCard{
+    max-width: 18rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .userTable{
     max-width: 900px !important;
