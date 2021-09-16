@@ -43,18 +43,24 @@ router.post('/', redirectToHome, (req, res) => {
         ) {
           return res.redirect('/signup?message=Please%20fill%20all%20fields.');
         } else {
-          // putting data in database table
-          db.none(
-            'INSERT INTO users (firstname ,lastname ,email, password) VALUES ($1, $2, $3, $4);',
-            [firstname, lastname, cleanEmail, hash]
-          )
-            .then(() => {
-              res.redirect('/');
-            })
-            .catch((err) => {
-              console.log(err);
-              res.send(err);
-            });
+          if (password !== confirm_password) {
+            return res.redirect(
+              '/signup?message=Please%20fill%20the%20same%20password.'
+            );
+          } else {
+            // putting data in database table
+            db.none(
+              'INSERT INTO users (firstname ,lastname ,email, password) VALUES ($1, $2, $3, $4);',
+              [firstname, lastname, cleanEmail, hash]
+            )
+              .then(() => {
+                res.redirect('/');
+              })
+              .catch((err) => {
+                console.log(err);
+                res.send(err);
+              });
+          }
         }
       }
     })
