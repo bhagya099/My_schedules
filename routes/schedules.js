@@ -27,13 +27,33 @@ router.get('/', redirectToLogin, (req, res) => {
 
 
 router.post('/', redirectToLogin, (req, res) => {
-     db.none('INSERT INTO schedules(users_id, day, start_time, end_time) VALUES($1, $2, $3, $4);', [req.body.users_id, req.body.day, req.body.start_time, req.body.end_time])
-  .then(() => {
-    res.redirect('/schedules')
-  })
-  .catch(error => {
-    console.log(error)
-    res.send(error)
-  })
+  const { day, start_time, end_time } = req.body;
+  // db.oneOrNone('SELECT * FROM schedules WHERE users_id = $1;', users_id)
+  //   .then((userId) => {
+  //     console.log(userId);
+  // if (!userId) {
+  // }
+  //   db.none(
+  //     'INSERT INTO schedules(users_id, day, start_time, end_time) VALUES($1, $2, $3, $4);',
+  //     [users_id, day, start_time, end_time]
+  //   ).then(() => {
+  //     res.redirect('/schedules');
+  //   });
+  // })
+  if (!day || !start_time || !end_time) {
+    return res.status(400).json({ msg: 'Please fill all the field' });
+  } else {
+    db.none(
+      'INSERT INTO schedules(users_id, day, start_time, end_time) VALUES($1, $2, $3,$4);',
+      [req.session.userId, day, start_time, end_time]
+    )
+      .then(() => {
+        res.redirect('/schedules');
+      })
+      .catch((error) => {
+        console.log(error);
+        res.send(error);
+      });
+  }
 })
 module.exports = router
