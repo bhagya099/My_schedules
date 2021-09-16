@@ -27,13 +27,49 @@ router.get('/', redirectToLogin, (req, res) => {
 
 
 router.post('/', redirectToLogin, (req, res) => {
-     db.none('INSERT INTO schedules(users_id, day, start_time, end_time) VALUES($1, $2, $3, $4);', [req.body.users_id, req.body.day, req.body.start_time, req.body.end_time])
-  .then(() => {
-    res.redirect('/schedules')
-  })
-  .catch(error => {
-    console.log(error)
-    res.send(error)
-  })
+  const { day, start_time, end_time } = req.body;
+  // for not taking empty values
+  if (!day || !start_time || !end_time) {
+    return res.status(400).json({ msg: 'Please fill all the field' });
+  } else {
+    db.any(
+      'SELECT users_id, day, start_time, end_time FROM schedules WHERE users_id =$1 AND day=$2;',
+      [req.session.userId, day]
+    ).then((schedules) => {
+      console.log(schedules);
+      const overlap = schedules.some((schedule) => {
+        return (
+          start_time <= schedule.end_time && end_time >= schedule.start_time
+        );
+      });
+      console.log(overlap);
+      if (overlap) {
+        res.send('Please selct another time');
+      } else {
+        db.none(
+          'INSERT INTO schedules(users_id, day, start_time, end_time) VALUES($1, $2, $3,$4);',
+          [req.session.userId, day, start_time, end_time]
+        )
+          .then(() => {
+            res.redirect('/schedules');
+          })
+          .catch((error) => {
+            console.log(error);
+            res.send(error);
+          });
+      }
+    });
+    // db.none(
+    //   'INSERT INTO schedules(users_id, day, start_time, end_time) VALUES($1, $2, $3,$4);',
+    //   [req.session.userId, day, start_time, end_time]
+    // )
+    //   .then(() => {
+    //     res.redirect('/schedules');
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     res.send(error);
+    //   });
+  }
 })
 module.exports = router
