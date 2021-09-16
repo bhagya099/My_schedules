@@ -48,7 +48,12 @@ router.post('/', redirectToLogin, (req, res) => {
      res.redirect(
           '/schedules?message=Please%20fill%20has%20all%20the%20fields.'
         );
-  } else {
+  } else if(end_time <= start_time){
+      res.redirect(
+          '/schedules?message=End%20time%20should%20be%20greater%20than%20start%20time.'
+        );
+  }
+  else {
     db.any(
       'SELECT users_id, day, start_time, end_time FROM schedules WHERE users_id =$1 AND day=$2;',
       [req.session.userId, day]
