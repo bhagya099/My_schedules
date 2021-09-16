@@ -10,8 +10,11 @@
 <body>
     <!-- adding nav bar -->
     <%- include('../partials/nav.ejs') %>
-        <h1>User Details of <%= user.firstname %>
+    <header>
+        <h1 class="text-center m-3">User Details of <%= user.firstname.charAt(0).toUpperCase() + user.firstname.slice(1) %>
         </h1>
+    </header>
+    <main>
         <div class="card border-primary userCard">
             <div class="card-body">
                 <p>First Name: <%= user.firstname %>
@@ -22,7 +25,7 @@
                 </p>
             </div>
         </div>
-
+    </main>
         <!-- including footer -->
         <%- include('../partials/footer.ejs') %>
 </body>

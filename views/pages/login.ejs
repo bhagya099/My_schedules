@@ -7,13 +7,17 @@
 </head>
 
 <body>
+    <!-- for error message -->
     <% if (typeof message !=='undefined' ) { %>
         <p style="color: red">
             <%= message %>
         </p>
         <% } %>
-    <h2>Please login</h2>
+    <header>
+        <h2>Please login</h2>
+    </header>
     <!-- Form starts here -->
+    <main>
     <form id="form-style" action="/" method="POST">
         <div class="mb-3">
             <label for="login-email" class="form-label">Email address</label>
@@ -27,6 +31,7 @@
         <button type="submit" class="btn btn-lg" style="background-color: rgb(78, 78, 138); color: white;">Login</button>
         <a role="button" class="btn btn-lg" style="background-color: rgb(78, 78, 138); color: white;" href="/signup">Sign up</a>
     </form>
+</main>
     <%- include('../partials/footer.ejs') %>
 </body>
 

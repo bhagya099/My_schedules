@@ -44,7 +44,8 @@ router.post('/', redirectToHome, (req, res) => {
           !password ||
           !confirm_password
         ) {
-          return res.status(400).json({ msg: 'Please fill all the field' });
+          //   return res.status(400).json({ msg: 'Please fill all the field' });
+          return res.redirect('/signup?message=Please%20fill%20all%20fields.');
         } else {
           // putting data in database table
           db.none(
