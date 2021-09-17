@@ -22,3 +22,7 @@
 5. DATABASE - SQL AND PostgreSQL
 6. We used middleware so only you can the homepage after login only.
 7. We used Session for adding userId in cookies so we can use it for logout logic and also put new scheduls only login users.
+
+
+# This is how project will work
+![Screen Shot 2021-09-17 at 9 59 49 am](https://user-images.githubusercontent.com/59786494/133704628-ac0e1ea9-316d-4f50-bd5b-8415d05bcfd5.png)
